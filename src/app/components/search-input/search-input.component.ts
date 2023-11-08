@@ -96,8 +96,8 @@ export class SearchInputComponent implements OnInit, OnChanges {
         } else {
           this.infoService.showErrorString('Failed to add new data');
         }
+        this.searchModel = ''
       });
-
     }
   }
 
