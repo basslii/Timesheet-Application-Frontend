@@ -1,0 +1,10 @@
+<div style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+">
+    <app-search-input [allStatus]="allStatus" [allUsers]="allUsers" (customEvent)="receiveDataFromChild($event)" [isReload]="isReload"></app-search-input>
+    <app-table-component [allStatus]="allStatus" [allUsers]="allUsers" [showData]="showData!" (customEvent)="reloadPage($event)" [isReload]="isReload"></app-table-component>
+
+</div>

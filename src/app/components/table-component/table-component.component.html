@@ -1,0 +1,52 @@
+<ng-container *ngIf="!isLoading">
+    <div style="padding-bottom: 50px;">
+        <p-table
+            [value]="showData!"
+            [columns]="cols"
+            responsiveLayout="scroll"
+            [autoLayout]="true"
+        >
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns" [style.minWidth]="col.width" style="text-align: center;">
+                    {{col.header}}
+                </th>
+                <th> Options </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-val let-columns>
+            <tr>
+                <td style="text-align: center;">
+                    <span>{{val.project}}</span>
+                </td>
+                <td style="text-align: center;">
+                    <span>{{val.task}}</span>
+                </td>
+                <td style="text-align: center;">
+                    <span>{{val.assignedTo.name}}</span>
+                </td>
+                <td style="text-align: center;">
+                    <span>{{val.startDate}}</span>
+                </td>
+                <td style="text-align: center;">
+                    <span>{{val.endDate}}</span>
+                </td>
+                <td style="text-align: center;">
+                    <span>{{val.status.status}}</span>
+                </td>
+                <td  style="text-align: center;">
+                    <span *ngFor="let o of options;">
+                        <button mat-icon-button (click)="performAction(o, val)">
+                            <mat-icon>{{o.icon}}</mat-icon>
+                        </button>
+                    </span>
+                </td>
+            </tr>
+        </ng-template>
+        
+        </p-table>
+    </div>
+</ng-container>
+<ng-container *ngIf="isLoading">
+    Loading...
+</ng-container>

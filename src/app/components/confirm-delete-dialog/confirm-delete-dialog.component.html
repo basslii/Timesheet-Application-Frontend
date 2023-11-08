@@ -1,0 +1,11 @@
+<!-- <p>confirm-delete-dialog works!</p> -->
+
+
+<h1 mat-dialog-title>Confirm Delete Data</h1>
+<div style="text-align: center; padding: 30px;">
+    <span>Are you sure you want to delete this data with id: {{data.id}}</span>
+</div>
+<div class="action-container">
+    <button mat-raised-button mat-dialog-close style="width: 100px; height: 40px; padding: 0 30px;">Cancel</button>
+    <button mat-raised-button color="warn" style="width: 100px; height: 40px; padding: 0 30px;" [mat-dialog-close]="true">delete</button>
+</div>

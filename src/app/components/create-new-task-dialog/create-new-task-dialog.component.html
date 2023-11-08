@@ -1,0 +1,55 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 30px;"
+>
+    <form [formGroup]="inputFormGroup"  style="width: 100%;">
+        <ng-container *ngFor="let f of fields">
+            <div style="display: flex; flex-direction: column;">
+                <label style="margin-bottom: 10px;">{{f.key}}</label>
+                <mat-form-field *ngIf="!f.multiple && !f.date">
+                    <mat-label>{{f.key}}</mat-label>
+                    <input matInput required [formControlName]="f.key">
+                </mat-form-field>
+            </div>
+            <div style="width: 50%;">
+                <mat-form-field *ngIf="!f.multiple && f.date && f.key === 'startDate'">
+                    <mat-label>{{f.key}}</mat-label>
+                    <input matInput [formControlName]="f.key" [matDatepicker]="startDatePicker" required>
+                    <mat-hint>DD/MM/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #startDatePicker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field *ngIf="!f.multiple && f.date && f.key === 'endDate'">
+                    <mat-label>{{f.key}}</mat-label>
+                    <input matInput [formControlName]="f.key" [matDatepicker]="endDatePicker" required>
+                    <mat-hint>DD/MM/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #endDatePicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div style="width: 50%;">
+                <mat-form-field *ngIf="f.multiple && !f.date && f.key === 'Status'">
+                    <mat-label>Status</mat-label>
+                    <mat-select [formControlName]="f.key" [multiple]="false" required>
+                        <mat-option *ngFor="let w of data.status" [value]="w.status">{{w.status}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field *ngIf="f.multiple && !f.date && f.key === 'AssignTo'">
+                    <mat-label>{{f.key}}</mat-label>
+                    <mat-select [formControlName]="f.key" [multiple]="false" required>
+                        <mat-option *ngFor="let w of data.users" [value]="w.name">{{w.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </ng-container>
+    </form>
+</div>
+<div class="action-container">
+    <button mat-raised-button mat-dialog-close style="width: 100px; height: 40px; padding: 0 30px;">Cancel</button>
+    <button [disabled]="!inputFormGroup.valid" mat-raised-button color="primary" style="width: 100px; height: 40px; padding: 0 30px;"
+        [mat-dialog-close]="data">{{ data.edit ? 'Update' : 'Create'}}</button>
+</div>

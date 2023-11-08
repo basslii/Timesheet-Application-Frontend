@@ -1,0 +1,40 @@
+.custom-input-style {
+    height: 30px;
+    width: 400px;
+    border: 1px solid lightslategrey;
+    border-radius: 20px;
+    padding-left: 15px;
+    font-size: 14px;
+}
+
+.custom-button-style {
+    width: 40%;
+}
+
+.button-container {
+    width: 80%;
+    margin-left: 58.641px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* .custom-button-style {
+    width: 40%;
+    height: 15%;
+    background: aliceblue;
+    border: 2px solid lightslategrey;
+    color: lightslategrey;
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 0 15px;
+}
+
+.custom-button-style:hover {
+    background: lightslategrey;
+    border: 2px solid aliceblue;
+    color: aliceblue;
+    cursor: pointer;
+} */
+
