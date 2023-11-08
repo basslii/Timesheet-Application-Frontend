@@ -8,7 +8,6 @@ import * as moment from 'moment';
 import { UserService } from 'src/app/services/user-service.service';
 import { StatusService } from 'src/app/services/status-service.service';
 import { firstValueFrom } from 'rxjs';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-input',
@@ -28,7 +27,6 @@ export class SearchInputComponent implements OnInit, OnChanges {
     private timeSheetService: TimesheetService,
     private userService: UserService,
     private statusService: StatusService,
-    private router: Router,
   ){}
 
   ngOnInit(): void {
@@ -57,7 +55,6 @@ export class SearchInputComponent implements OnInit, OnChanges {
       if (foundResult.length) {
         await this.loadPage(foundResult!);
         this.infoService.showInfo('Successfully found result');
-        this.router.navigate([''])
       } else {
         this.infoService.showErrorString(`Failed to find with keyword ${this.searchModel}`);
       }

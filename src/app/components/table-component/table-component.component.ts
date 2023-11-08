@@ -8,7 +8,6 @@ import * as moment from 'moment';
 import { UserService } from 'src/app/services/user-service.service';
 import { StatusService } from 'src/app/services/status-service.service';
 import { InfoService } from 'src/app/services/info-service.service';
-import { Router } from '@angular/router';
 import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-delete-dialog.component';
 
 @Component({
