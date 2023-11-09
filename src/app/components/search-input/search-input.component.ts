@@ -81,8 +81,8 @@ export class SearchInputComponent implements OnInit, OnChanges {
         project: dialogResponse.fields.Project,
         task: dialogResponse.fields.Task,
         assignedTo: await firstValueFrom(this.userService.getUserById(this.allUsers.find(user => user.name === dialogResponse.fields!.AssignTo!)!.id!.toString())),
-        startDate: moment(dialogResponse.fields.startDate).format('MM-DD-YYYY'),
-        endDate: moment(dialogResponse.fields.endDate).format('MM-DD-YYYY'),
+        startDate: moment(dialogResponse.fields.startDate).format('DD-MM-YYYY'),
+        endDate: moment(dialogResponse.fields.endDate).format('DD-MM-YYYY'),
         status: await firstValueFrom(this.statusService.getStatusById(this.allStatus.find(status => status.status === dialogResponse.fields!.Status!)!.id!.toString())),
       }
 
